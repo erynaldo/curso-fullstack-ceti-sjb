@@ -1,0 +1,200 @@
+/* =========================================================
+   CERTIFICADO CSS
+========================================================= */
+
+.certificate-section {
+
+  margin-top: 30px;
+}
+
+.certificate-card {
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 24px;
+
+  text-align: center;
+}
+
+.certificate-card h2xx {
+
+  font-size: 28px;
+
+  margin-bottom: 15px;
+}
+
+.certificate-card pxx {
+
+  color: #64748b;
+
+  margin-bottom: 20px;
+}
+
+.btn-disabled {
+  background: #c7c4c6;
+  border: 1px solid #b4b2b3;
+  color: #f8f7f9;
+  cursor: not-allowed;
+  opacity: .8;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.btn-enabled {
+  background: #0b5ad0;
+  color: #f8f7f9;
+  cursor: pointer;
+  opacity: 1;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.btn-enabled:hover {
+  background: #044bb5;
+}
+
+/* =========================================================
+   CERTIFICADO
+========================================================= */
+
+.certificate {
+
+  width: 1120px;
+
+  background: white;
+
+  margin-top: 40px;
+
+  padding: 30px;
+
+  position: absolute;
+
+  left: -99999px;
+}
+
+.certificate-border {
+
+  border: 12px solid #6d28d9;
+
+  padding: 60px;
+
+  min-height: 720px;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f8fafc
+    );
+}
+
+.certificate-header {
+
+  text-align: center;
+
+  margin-bottom: 60px;
+}
+
+.certificate-header h1 {
+
+  font-size: 38px;
+
+  color: #111827;
+
+  margin-bottom: 12px;
+}
+
+.certificate-header h2 {
+
+  font-size: 52px;
+
+  color: #6d28d9;
+
+  letter-spacing: 3px;
+}
+
+.certificate-body {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  margin-bottom: 90px;
+}
+
+.certificate-text {
+
+  font-size: 24px;
+
+  line-height: 2;
+
+  max-width: 850px;
+
+  color: #334155;
+}
+
+.certificate-date {
+
+  text-align: center;
+
+  font-size: 20px;
+
+  margin-bottom: 100px;
+
+  color: #1e293b;
+}
+
+.certificate-signatures {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 50px;
+}
+
+.signature-box {
+
+  width: 300px;
+
+  text-align: center;
+}
+
+.signature-line {
+
+  width: 100%;
+
+  border-top: 2px solid #111827;
+
+  margin-bottom: 10px;
+}
+
+.signature-box p {
+
+  font-size: 18px;
+
+  color: #334155;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .certificate-card {
+
+    padding: 20px;
+  }
+
+  .certificate-card h2 {
+
+    font-size: 24px;
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ButtonCurtir from '../components/ButtonCurtir';
 
 import api from '../api/axios';
 
@@ -64,7 +65,7 @@ export default function CertificateButton({
 
     <div className="certificate-card">
 
-      <div>
+      <div className="flex flex-col items-center">
 
         <h2 className="text-3xl font-bold text-slate-700 mb-5">
           Certificado do Curso
@@ -77,15 +78,17 @@ export default function CertificateButton({
           </strong>
         </p>
 
-        <p className="text-sm font-bold text-red-500 tracking-widest mb-4">
-          ATENÇÃO: <span className="text-slate-500 font-medium">Verifique o seu nome abaixo. Se estiver errado comunique ao professor. Pois é esse nome que vai aparecer no certificado.</span>
+        <p className="text-sm font-bold text-red-500 mb-3 tracking-wider">
+          ATENÇÃO: <span className="text-slate-600 font-medium">Verifique se o seu nome está correto. Se tiver certo <strong>confirme no botão</strong> abaixo. Mas se tiver errado informe o erro ao professor. </span>
         </p>
 
-        <p className="text-xl text-slate-500 mb-4">
+        <p className="text-xl text-slate-500 mb-3">
           <strong className="">
             {student.name}
           </strong>
         </p>
+
+        <ButtonCurtir userId={student.id} />
 
       </div>
 
@@ -108,7 +111,7 @@ export default function CertificateButton({
 
         onClick={downloadCertificate}
 
-        className={`px-6 py-4 rounded-2xl font-medium text-white tracking-widest transition-all ${canDownload
+        className={`px-6 py-4 rounded-2xl font-medium text-white tracking-wider transition-all ${canDownload
 
           ? 'bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700'
 

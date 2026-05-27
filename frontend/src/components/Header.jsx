@@ -12,8 +12,9 @@ export default function Header() {
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between text-slate-100">
         <div>
           <h1 className="font-display text-base text-sm text-slate-300 leading-tight">
-            Seja bem vindo(a) <span className="text-blue-400 uppercase font-bold">{user?.name?.split(' ').slice(0,3).join(' ')}</span> 👋
-          </h1>
+            {/* Seja bem vindo(a) <span className="text-blue-400 uppercase font-bold">{user?.name?.split(' ').slice(0,3).join(' ')}</span> 👋 */}
+            Seja bem vindo(a) <span className="text-blue-400 uppercase font-bold">{user?.name?.split(' ')[0]}</span> 👋
+          </h1> 
         </div>
         <div className="flex items-center gap-3">
           {user?.role === 'admin' && (

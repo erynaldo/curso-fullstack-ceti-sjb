@@ -45,10 +45,10 @@ export default function Login() {
             <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Usuário</label>
             <input
               name="matricula" value={form.matricula} onChange={handleChange} required
-              className="w-full px-4 py-3 bg-slate-50 tracking-wide border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-300 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 tracking-wider border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-300 transition-all"
               placeholder="Ex: 81756352"
             />
-            <label className="block text-xs text-red-400 tracking-wider mb-2">O usuário é o número do seu celular sem o DDD e sem o 9</label>
+            <label className="block text-xs text-red-500 tracking-wider mb-2">O usuário é o número do seu celular sem o DDD e sem o 9</label>
 
           </div>
 

@@ -2,7 +2,11 @@ const express = require('express');
 const cors    = require('cors');
 const app     = express();
 
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+// acesso ao backend localmente
+// app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+
+// acesso ao backend no Render
+app.use(cors({ origin: 'https://curso-dev-ceti.onrender.com', credentials: true }));
 app.use(express.json());
 
 app.use('/api/auth',  require('./routes/authRoutes'));

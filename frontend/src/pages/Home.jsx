@@ -53,8 +53,8 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <span className="inline-block m-4 px-4 py-1.5 rounded-full border border-brand-500/40 text-slate-400 text-sm font-medium tracking-wide bg-brand-500/10">
-          Organização: <strong className="text-white">CETI São João Batista</strong>
+        <span className="inline-block mt-8 px-4 py-1.5 rounded-full border border-brand-500/40 text-slate-400 text-sm font-medium tracking-wide bg-brand-500/10">
+          Apoio: <strong className="text-white">CETI São João Batista</strong>
         </span>
       </div>
     </div>

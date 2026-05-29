@@ -4,34 +4,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formação Fullstack</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap"
-    rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="./src/certificado.css" />
-  
+
+  <title>Dashboard Frequência dos Alunos</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body {
-      width: 100%;
+      background:
+        radial-gradient(circle at top left, #312e81 0%, #09090b 35%),
+        radial-gradient(circle at bottom right, #1e3a8a 0%, #09090b 40%);
       min-height: 100vh;
-      font-family: Inter, Arial, Helvetica, sans-serif;
     }
 
-    button {
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
+    .glass {
+      background: rgba(24, 24, 27, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    .student-card {
+      transition: all .35s ease;
+    }
 
+    .student-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 0 25px rgba(99, 102, 241, .25);
+      border-color: rgba(99, 102, 241, .45);
+    }
+
+    .progress-animate {
+      animation: progressAnimation 1.4s ease;
+    }
+
+    @keyframes progressAnimation {
+      from {
+        width: 0%;
+      }
+    }
+
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shine::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, .15),
+          transparent);
+      transition: .8s;
+    }
+
+    .shine:hover::before {
+      left: 120%;
+    }
   </style>
 </head>
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+<body class="text-white px-4 py-10">
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+
+      <h1
+        class="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-400 to-white bg-clip-text text-transparent">
+        Formação Dev Aluno FullStack
+      </h1>
+
+      <h2
+        class="text-3xl md:text-4xl mt-2 font-extrabold bg-gradient-to-r from-blue-400 via-purple-400 to-white bg-clip-text text-transparent">
+        Do Zero ao Deploy
+      </h2>
+
+      <p class="text-2xl md:text-2xl mt-2 font-bold text-white bg-clip-text text-transparent">
+        React, Tailwind CSS, Node.js, PostgreSQL e IA
+      </p>
+
+      <p class="text-left text-zinc-400 mt-10 text-2xl">
+        Acompanhe o progresso de sua frequência.
+      </p>
+
+      <p class="text-left text-orange-400 mt-4 text-xl">
+        ATENÇÃO: Verifique se seu nome está correto. Caso esteja errado, informe ao professor para correção. Pois é o
+        nome que vai estar no certificado.
+      </p>
+
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="glass rounded-3xl p-4 md:p-10 shadow-2xl">
+
+      <div class="space-y-5">
+
+        <!-- ALUNO -->
+        <script>
+          const alunos = [
+            { nome: "DANDARA PEREIRA BORGES", freq: 25 },
+            { nome: "ELAINE DA SILVA FERNANDES", freq: 25 },
+            { nome: "ELAINE FERREIRA DA SILVA", freq: 50 },
+            { nome: "FRANCIELE PEREIRA FERREIRA", freq: 50 },
+            { nome: "GUSTAVO FERREIRA ARAUJO", freq: 50 },
+            { nome: "ISABELLA DA SILVA OLIVEIRA", freq: 50 },
+            { nome: "JOAO LUCAS LIMA DE MENESES", freq: 25 },
+            { nome: "JOAO PEDRO CARDOSO DE SOUSA", freq: 50 },
+            { nome: "KEMILLY ARAUJO DE SOUSA", freq: 50 },
+            { nome: "LAISE BRITO RODRIGUES", freq: 25 },
+            { nome: "LUIZ FERNANDO BRITO SOUZA", freq: 50 },
+            { nome: "MARIA CLARA BRITO GONÇALVES", freq: 50 },
+            { nome: "MARIA GLEYCE KELLY SILVA BRITO", freq: 50 },
+            { nome: "MARIA VICTORIA BRITO GONÇALVES", freq: 50 },
+            { nome: "PIETRA DE SOUSA", freq: 50 },
+            { nome: "RAFAEL ARTUR DAMASCENO DOS SANTOS", freq: 25 },
+            { nome: "RAUL BRITO OLIVEIRA", freq: 50 },
+            { nome: "REYDINA KEBILIS DA SILVA BARROSO", freq: 50 },
+            { nome: "TALITA VITORIA PESSOA DAS CHAGAS", freq: 50 },
+            { nome: "TERESA VITORIA DE ARAUJO SANTOS", freq: 50 },
+            { nome: "VICTOR ENZO FIRMINO LIMA", freq: 50 }
+          ];
+
+          window.onload = () => {
+
+            const container = document.getElementById("students");
+
+            alunos.forEach(aluno => {
+
+              let color = "";
+
+              if (aluno.freq >= 100) {
+                color = "from-emerald-400 to-emerald-600";
+              } else if (aluno.freq >= 75) {
+                color = "from-blue-400 to-indigo-600";
+              } else if (aluno.freq >= 50) {
+                color = "from-purple-400 to-purple-700";
+              } else {
+                color = "from-red-400 to-red-600";
+              }
+
+              container.innerHTML += `
+              
+              <div class="student-card shine border border-zinc-800 rounded-2xl p-5 bg-zinc-900/70">
+
+                <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+
+                  <div class="lg:w-1/4">
+                    <h2 class="text-lg font-semibold text-zinc-100 hover:text-purple-300 transition">
+                      ${aluno.nome}
+                    </h2>
+                  </div>
+
+                  <div class="flex-1">
+
+                    <div class="w-full bg-zinc-800 rounded-full h-5 overflow-hidden">
+
+                      <div
+                        class="progress-animate h-full rounded-full bg-gradient-to-r ${color}"
+                        style="width:${aluno.freq}%"
+                      ></div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="lg:w-20 text-right">
+
+                    <span class="font-bold text-lg text-zinc-200">
+                      ${aluno.freq}%
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              `;
+            });
+          };
+        </script>
+
+        <div id="students"></div>
+
+        <!-- CERTIFICADO -->
+        <div class="mt-16">
+
+          <h2
+            class="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 via-blue-400 to-white bg-clip-text text-transparent">
+            Modelo do certificado
+          </h2>
+
+          <div class="flex justify-center">
+
+            <div class="relative group max-w-5xl">
+
+              <!-- IMAGEM -->
+              <!-- <img src="certificado.png" alt="Certificado da Formação Dev" -->
+              <img src="https://i.postimg.cc/HswqSJLK/certificado.png" alt="Certificado"
+                class="rounded-3xl border border-zinc-700 shadow-2xl transition duration-500 group-hover:scale-[1.02] group-hover:shadow-purple-500/30" />
+
+              <!-- EFEITO OVERLAY -->
+              <div
+                class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-purple-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition duration-500">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </body>
 
 </html>
